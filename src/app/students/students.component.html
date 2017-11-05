@@ -1,0 +1,37 @@
+<h2>Add New Student</h2>
+<form (submit) = "createStudent($event)">
+    <input type="text" class="form-control"  placeholder="name" [(ngModel)] ="name" name="name">
+    <input type="text" class="form-control"  placeholder="matric_number" [(ngModel)] ="matric_number" name="matric_number">
+    <input type="text" class="form-control"  placeholder="department" [(ngModel)] ="department" name="department">
+    <input type="text" class="form-control"  placeholder="faculty" [(ngModel)] ="faculty" name="faculty">
+    <input type="text" class="form-control"  placeholder="level" [(ngModel)] ="level" name="level">
+    
+    
+    <button class="btn-floating btn-large waves-effect waves-light red">+</button>
+  </form>
+
+
+  <table class="striped">
+        <thead>
+          <tr>
+              <th>Name</th>
+              <th>Matric_Number</th>
+              <th>Department</th>
+              <th>Faculty</th>
+              <th>Level</th>
+              <th>Registered</th>
+          </tr>
+        </thead>
+
+        <tbody *ngFor= "let student of students">
+          <tr>
+            <td>{{student.name}}</td>
+            <td>{{student.matric_number}}</td>
+            <td>{{student.department}}</td>
+            <td>{{student.faculty}}</td>
+            <td>{{student.level}}</td>
+            <td>{{student.registered}}</td>
+            <td><input class="waves-effect waves-light btn" type="submit" value="Update Status" (click)="updateStudent(student)"></td>
+            <td><button (click) ="deleteStudent(student._id)" class="waves-effect waves-light btn">Delete</button></td>
+        </tbody>
+      </table>
